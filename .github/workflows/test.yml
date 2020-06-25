@@ -20,14 +20,17 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
+    - name: Build
       run: |
         docker build \
           -t actionspkgstest:latest .
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: Tag and Push
       run: |
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u jpadams --password-stdin
         docker tag actionspkgstest:latest docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
         docker push docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
+    - name: Pull Test
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u jpadams --password-stdin
+        docker rmi actionspkgstest:latest
+        docker pull docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
