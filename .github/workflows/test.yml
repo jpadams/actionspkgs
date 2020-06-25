@@ -31,10 +31,16 @@ jobs:
         docker push docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
     - name: Remove local image and Pull from GH Packages
       run: |
-        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d 
+        echo "======================"
+        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d
+        echo "======================"
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u jpadams --password-stdin
         docker rmi actionspkgstest:latest
         docker rmi docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
-        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d 
+        echo "======================"
+        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d
+        echo "======================"
         docker pull docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
-        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d 
+        echo "======================"
+        docker images | echo "NO OTHER actionspkgstest IMAGES" | grep actionspkgstest | sort -d
+        echo "======================"
