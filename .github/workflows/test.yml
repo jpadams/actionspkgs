@@ -55,3 +55,6 @@ jobs:
         echo "======================"
         { docker images; echo "no OTHER actionspkgstest IMAGES"; } | grep actionspkgstest | sort -d
         echo "======================"
+
+        container:
+          image: docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
