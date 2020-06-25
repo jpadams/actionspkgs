@@ -34,7 +34,7 @@ jobs:
         docker images | grep actionspkgstest
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u jpadams --password-stdin
         docker rmi actionspkgstest:latest
-        docker rm docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
+        docker rmi docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
         docker images | grep actionspkgstest
         docker pull docker.pkg.github.com/jpadams/actionspkgs/actionspkgstest:latest
         docker images | grep actionspkgstest
