@@ -36,7 +36,7 @@ jobs:
         
         echo "#### Checking for actionspkgstest images"
         echo "======================"
-        { docker images; echo "NO OTHER actionspkgstest IMAGES" } | grep actionspkgstest | sort -d
+        { docker images; echo "NO OTHER actionspkgstest IMAGES"; } | grep actionspkgstest | sort -d
         echo "======================"
         
         echo "#### Removing local actionspkgstest images"
@@ -45,7 +45,7 @@ jobs:
         
         echo "#### Checking for actionspkgstest images"
         echo "======================"
-        { docker images; echo "NO OTHER actionspkgstest IMAGES" } | grep actionspkgstest | sort -d
+        { docker images; echo "NO OTHER actionspkgstest IMAGES"; } | grep actionspkgstest | sort -d
         echo "======================"
         
         echo "#### Pulling actionspkgstest image back down from GH Packages"
@@ -53,5 +53,5 @@ jobs:
 
         echo "#### Checking for actionspkgstest images"
         echo "======================"
-        { docker images; echo "NO OTHER actionspkgstest IMAGES" } | grep actionspkgstest | sort -d
+        { docker images; echo "NO OTHER actionspkgstest IMAGES"; } | grep actionspkgstest | sort -d
         echo "======================"
